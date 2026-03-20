@@ -1,0 +1,161 @@
+/* Importando fonte para um visual profissional */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #0d0d12;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden; /* Evita scrolls causados pelas esferas de fundo */
+}
+
+/* --- Fundo Decorativo --- */
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle {
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #a020f0, #f0f0f0);
+    filter: blur(5px);
+}
+
+.circle-1 { top: -140px; left: -140px; }
+.circle-2 { bottom: -140px; right: -140px; }
+
+/* --- Lógica do Flip (Giro) --- */
+.card-container {
+    width: 450px;
+    height: 280px;
+    perspective: 1200px; /* Define a profundidade do efeito 3D */
+}
+
+.card-flipper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); /* Animação suave */
+    transform-style: preserve-3d; /* Essencial para que as faces ocupem o espaço 3D */
+}
+
+/* Ativa o giro ao passar o mouse */
+.card-container:hover .card-flipper {
+    transform: rotateY(180deg);
+}
+
+/* Configurações Gerais das Faces */
+.face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Oculta a face de trás quando não está visível */
+    border-radius: 25px;
+    backdrop-filter: blur(25px); /* Efeito de vidro fosco */
+    -webkit-backdrop-filter: blur(25px);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    color: #fff;
+}
+
+/* --- Estilização da Frente --- */
+.front {
+    padding: 30px;
+    z-index: 2;
+    transform: rotateY(0deg);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.logo { width: 65px; }
+.chip { width: 50px; }
+
+.label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    opacity: 0.7;
+}
+
+.number {
+    font-size: 24px;
+    letter-spacing: 3px;
+    margin-top: 8px;
+    word-spacing: 8px;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 35px;
+}
+
+/* --- Estilização do Verso --- */
+.back {
+    transform: rotateY(180deg); /* Começa invertido */
+    padding: 0;
+}
+
+.black-strip {
+    background: #000;
+    width: 100%;
+    height: 55px;
+    margin-top: 30px;
+}
+
+.back-content {
+    padding: 20px 30px;
+}
+
+.customer-service {
+    font-size: 10px;
+    margin-bottom: 12px;
+}
+
+.signature-area {
+    background: rgba(255, 255, 255, 0.2);
+    height: 45px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 15px;
+}
+
+.cvv {
+    background: #fff;
+    color: #333;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 14px;
+}
+
+.terms {
+    font-size: 9px;
+    margin-top: 20px;
+    line-height: 1.5;
+    opacity: 0.6;
+    text-align: justify;
+}
